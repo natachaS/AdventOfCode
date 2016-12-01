@@ -26,7 +26,7 @@ fs.readFile('./input.txt', 'utf8', function(err, data) {
   return;
 });
 
-// PART 2 - can definitely be refactoredand optimized
+// PART 2 - can definitely be refactored and optimized
 let path = ['0,0'];
 let finished = false;
 
