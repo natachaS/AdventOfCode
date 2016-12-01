@@ -30,6 +30,13 @@ fs.readFile('./input.txt', 'utf8', function(err, data) {
 let path = ['0,0'];
 let finished = false;
 
+const exit = function(pos) {
+  if (path.includes(pos)) {
+    console.log('Location visited twice =', pos);
+    finished = true;
+  }
+}
+
 fs.readFile('./input.txt', 'utf8', function(err, data) {
   let moves = data.split(', ');
   moves.forEach( function(turn) {
@@ -41,22 +48,15 @@ fs.readFile('./input.txt', 'utf8', function(err, data) {
         for (i=0; i < steps; i++) {
           y+=1
           let pos = x + ',' + y;
-          // console.log(pos)
-          if (path.includes(pos)) {
-            console.log('Number of blocks to location visited twice =', (Math.abs(x) + Math.abs(y)));
-            finished = true;
-          }
-          path.push(pos)
+          exit(pos);
+          path.push(pos);
         }
         break;
       case 1:
         for (i=0; i < steps; i++) {
           x+=1
           let pos = x + ',' + y;
-          if (path.includes(pos)) {
-            console.log('Number of blocks to location visited twice =', (Math.abs(x) + Math.abs(y)));
-            finished = true;
-          }
+          exit(pos);
           path.push(pos)
         }
         break;
@@ -64,10 +64,7 @@ fs.readFile('./input.txt', 'utf8', function(err, data) {
         for (i=0; i < steps; i++) {
           y-= 1
           let pos = x + ',' + y;
-          if (path.includes(pos)) {
-            console.log('Number of blocks to location visited twice =', (Math.abs(x) + Math.abs(y)));
-            finished = true;
-          }
+          exit(pos);
           path.push(pos)
         }
         break;
@@ -75,10 +72,7 @@ fs.readFile('./input.txt', 'utf8', function(err, data) {
         for (i=0; i < steps; i++) {
           x-= 1
           let pos = x + ',' + y;
-          if (path.includes(pos)) {
-            console.log('Number of blocks to location visited twice =', (Math.abs(x) + Math.abs(y)));
-            finished = true;
-          }
+          exit(pos);
           path.push(pos)
         }
         break;
