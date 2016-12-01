@@ -33,7 +33,7 @@ let finished = false;
 const exit = function(pos) {
   if (path.includes(pos)) {
     console.log('Location visited twice =', pos);
-    finished = true;
+    return finished = true;
   }
 }
 
