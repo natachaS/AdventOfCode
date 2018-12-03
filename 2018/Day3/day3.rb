@@ -16,5 +16,4 @@ solution = hits.flatten.count{ |count| count > 1}
 
 puts "Solution for part 1 is #{solution}"
 
-# Part 2
 
