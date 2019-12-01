@@ -1,9 +1,10 @@
-part1 = File.readlines('data.txt').map(&:to_i).map{ |mod| (mod/3)-2 }.inject(0, &:+)
+data = File.readlines('data.txt').map(&:to_i)
+part1 = data.map{ |mod| (mod/3)-2 }.inject(0, &:+)
 puts part1
 
 new_arr=[]
 
-File.readlines('data.txt').map(&:to_i).each  do |x|
+data.each  do |x|
     while x > 0  do
         x =(x/3)-2
         if x > 0
